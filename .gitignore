@@ -25,4 +25,4 @@ webapp/yarn-error.log*
 
 # api
 api/node_modules
-api/.env
+api/util/.env

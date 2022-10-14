@@ -1,23 +1,8 @@
-const express = require('express')
-const app = express()
-const env = require('./env')
+const server =  require('./server/server.js')
 
-app.get('/', function (req, res) {
-  res.send(`variable ${env.SENDER_PHONE_NUMBER}`)
-})
+server.listen(8080);
+console.log('Servidor escuchando en puerto ' + 8080);
 
-app.listen(8080, () => {
-  console.log(`Example app listening at http://localhost:8080`)
-})
-
-/* const accountSid = env.TWILIO_ACCOUNT_SID;
-const authToken = env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
-
-client.messages
-  .create({
-     body: 'HAga la berraca prueba',
-     from: env.SENDER_PHONE_NUMBER,
-     to: ''
-   })
-  .then(message => console.log(message.sid)); */
+server.on('error', err => {
+    console.error(err);
+});
