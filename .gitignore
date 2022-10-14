@@ -21,3 +21,8 @@ webapp/.env.production.local
 webapp/npm-debug.log*
 webapp/yarn-debug.log*
 webapp/yarn-error.log*
+
+
+# api
+api/node_modules
+api/.env
