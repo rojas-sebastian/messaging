@@ -1,8 +1,7 @@
 class message{
-    constructor(body,dateSent,status,to){
+    constructor(body,dateSent,to){
         this.body = body
         this.dateSent = dateSent
-        this.status = status
         this.to = to
     }
 }
