@@ -1,26 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Form from "./components/form/form";
+import ChatHistory from "./components/chatHistory/chatHistory";
+import NavBar from "./components/barraNavegacion/navBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
+      <BrowserRouter>
+        <NavBar></NavBar>
+        <Routes>
+          <Route path="/create" element={<Form></Form>} />
+          <Route path="/history" element={<ChatHistory></ChatHistory>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

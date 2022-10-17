@@ -5,6 +5,9 @@ webapp/node_modules
 webapp/.pnp
 webapp/.pnp.js
 
+#envarioment variables
+webapp/.env
+
 # testing
 webapp/coverage
 
@@ -22,7 +25,7 @@ webapp/npm-debug.log*
 webapp/yarn-debug.log*
 webapp/yarn-error.log*
 
-
 # api
-api/node_modules
-api/util/.env
+messaging-api/node_modules
+messaging-api/src/config/.env
+messaging-api/logs
