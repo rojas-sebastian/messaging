@@ -19,8 +19,9 @@ function ChatHistory() {
       console.log(error);
     }
   }
+
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
+    <div className="h-auto flex flex-col justify-center items-center">
       {messages.map((message) => (
         <Message className="p-5" text={message.body} phone={message.reciver} />
       ))}

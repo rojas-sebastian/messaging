@@ -1,5 +1,4 @@
 function Message(props) {
-  console.log(props);
   return (
     <div className="p-2 w-1/3 items-center">
       <label className="text-left" id="chat">
