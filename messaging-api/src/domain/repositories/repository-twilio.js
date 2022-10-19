@@ -4,7 +4,7 @@ const {
   TWILIO_ACCOUNT_SID,
   TWILIO_AUTH_TOKEN,
   SENDER_PHONE_NUMBER,
-} = require("../../config/env");
+} = require("../../config/environment/env");
 
 const twilioClient = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 

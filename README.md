@@ -13,7 +13,21 @@ This is a project for LaHaus technical test, this project uses the [Twilio API](
 
 ## Installation
 
-## Usage
+#### Requirements
+
+- Docker
+
+### How to run
+
+First of all, you need your update your environment variables. In order to do that, please update your Twilio credentials on the [environment file](messaging-api/src/config/environment/.env.docker) for docker
+
+Once you have your credentials installed, please run the following commands
+
+```sh
+docker-compose up --build
+```
+
+Once you have runned that command, please open a tab in your browser with the [main url](http://localhost:3000) of the project.
 
 ### Consider
 
@@ -29,12 +43,14 @@ The API was developed using the following technologies:
 - docker
 
 - Frontend:
+
   - ReactJS
   - TailwindCss
+
 - Backend:
   - Node JS (Express)
   - PostgreSQL
-  - Swagger
+  - OpenApi 3
 
 ## Contributing
 

@@ -1,5 +1,6 @@
 const { Pool } = require("pg");
-const env = require("../../config/env");
+const env = require("../../config/environment/env");
+const Logger = require("../../config/logger/logger");
 
 const config = {
   user: env.POSTGRES_USER,
@@ -9,7 +10,6 @@ const config = {
   port: env.POSTGRES_PORT,
   statement_timeout: 500,
 };
-
 const pool = new Pool(config);
 
 module.exports = pool;

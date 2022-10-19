@@ -1,4 +1,6 @@
-require("dotenv").config({ path: `${__dirname}/.env` });
+require("dotenv").config({
+  path: `${__dirname}/.env.${process.env.NODE_ENV ?? "development"}`,
+});
 const env = process.env;
 
 const environmentVariables = {
@@ -11,5 +13,7 @@ const environmentVariables = {
   POSTGRES_DATABASE: env.POSTGRES_DATABASE,
   POSTGRES_PORT: env.POSTGRES_PORT,
 };
+
+console.log(JSON.stringify(environmentVariables, null, 2));
 
 module.exports = environmentVariables;

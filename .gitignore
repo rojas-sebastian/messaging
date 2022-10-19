@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.vscode
+
 # dependencies
 webapp/node_modules
 webapp/.pnp
@@ -27,5 +29,7 @@ webapp/yarn-error.log*
 
 # api
 messaging-api/node_modules
-messaging-api/src/config/.env
+messaging-api/src/config/environment/.env*
+!messaging-api/src/config/environment/.env.example
+!messaging-api/src/config/environment/.env.docker
 messaging-api/logs

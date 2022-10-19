@@ -7,5 +7,4 @@ COPY . .
 RUN npm install
 
 CMD ["npm", "run", "start"]
-# CMD ["tail", "-f", "/dev/null"]
 EXPOSE 3001
