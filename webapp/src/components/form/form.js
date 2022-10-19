@@ -16,7 +16,7 @@ function Form() {
 
   async function sendMessage() {
     try {
-      const res = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_MESSAGING_API}/messaging/api/v1/messages`,
         {
           receiver: phone,
@@ -24,7 +24,6 @@ function Form() {
         },
         { timeout: 1000 }
       );
-
       toast.success("SMS enviado exitosamente");
     } catch (error) {
       toast.error(
@@ -47,6 +46,7 @@ function Form() {
         </label>
         <PhoneInput
           className="PhoneInput p-2 rounded"
+          tittle="phone input"
           defaultCountry="CO"
           placeholder="Enter phone number"
           value={phone}
