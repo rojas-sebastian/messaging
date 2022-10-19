@@ -32,4 +32,3 @@ messaging-api/node_modules
 messaging-api/src/config/environment/.env*
 !messaging-api/src/config/environment/.env.example
 messaging-api/logs
-messaging-api/src/config/environment/.env.docker
