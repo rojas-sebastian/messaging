@@ -5,10 +5,12 @@ This is a project for LaHaus technical test, this project uses the [Twilio API](
 ## Sections
 
 - [Installation](#installation)
-- [Usage](#usage)
+  - [Requirements](#requirements)
+  - [How to run](#how-to-run)
   - [Consider](#consider)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
+- [Next steps for a future version](#next-steps-for-a-future-version)
 - [License](#license)
 
 ## Installation
