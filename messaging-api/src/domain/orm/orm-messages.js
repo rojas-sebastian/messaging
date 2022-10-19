@@ -7,15 +7,11 @@ const getAll = async () => {
 
 const createOne = async (message) => {
   try {
-    const { body, dateSent, to } = message;
-    const statement = `INSERT INTO messages (body, datesent, reciver) VALUES ($1,$2,$3)`;
-    const values = [body, dateSent, to];
-    //console.debug(statement);
+    const { body, dateSent, receiver } = message;
+    const statement = `INSERT INTO messages (body, datesent, receiver) VALUES ($1,$2,$3)`;
+    const values = [body, dateSent, receiver];
 
-    console.log("Antes");
-    // const responsePostgres = await conn.query(statement, values);
-    console.log("DEspues");
-    // console.log(responsePostgres);
+    const responsePostgres = await conn.query(statement, values);
   } catch (err) {
     console.error(`Cannot save record into the database, error: ${err}`);
     throw new Error(`No pudimos almacenar el registro del SMS`);

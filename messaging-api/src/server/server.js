@@ -12,6 +12,9 @@ server.use(compression());
 server.use(cors());
 server.use(morganMiddleware);
 
+server.disable("x-powered-by");
+server.disable("etag");
+
 router(server);
 
 module.exports = server;

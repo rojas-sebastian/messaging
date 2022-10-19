@@ -1,23 +1,34 @@
 import { useState } from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import InputArea from "./input";
 
 function Form() {
   const [phone, setPhone] = useState("");
   const [text, setText] = useState("");
+
+  const onChange = (e) => {
+    setText(e.target.value);
+  };
 
   async function sendMessage() {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_MESSAGING_API}/messaging/api/v1/messages`,
         {
-          phone: phone,
-          text: text,
+          receiver: phone,
+          body: text,
         }
       );
       console.log(res);
+      toast.success("SMS enviado exitosamente");
     } catch (error) {
+      toast.error(
+        "Se produjo un error inesperado, por favor intentelo de nuevo"
+      );
     } finally {
       setPhone("");
       setText("");
@@ -25,49 +36,42 @@ function Form() {
   }
 
   return (
-    <div className="Form">
-      <div className="Container flex flex-col w-auto h-screen justify-center items-center">
+    <div className="h-[35rem] justify-center items-center flex ">
+      <div className="w-2/3  flex flex-col justify-center items-center">
         <label
           htmlFor="phone"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+          className="block mb-2 text-sm font-medium text-gray-90"
         >
-          To
+          Receiver
         </label>
         <PhoneInput
-          className="p-2"
+          className="PhoneInput p-2 rounded"
           defaultCountry="CO"
           placeholder="Enter phone number"
           value={phone}
           onChange={setPhone}
         />
-        <label
-          htmlFor="message"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-        >
-          mensaje
-        </label>
-        <textarea
-          id="message"
-          rows="4"
-          className="block p-2.5 w-1/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Escribe un maximo de 10 caracteres"
+        <InputArea
+          placeholder="Escribe un maximo de 160 caracteres"
+          errorMessage="maximo 160 caracteres"
+          label="message"
+          pattern=".{0,160}$"
+          required
           value={text}
-          errormessage="required message"
-          required={true}
-          pattern="hola"
-          onChange={(e) => setText(e.target.value)}
-        ></textarea>
-        {/* <span className="hidden invalid:block"></span> */}
+          onChange={onChange}
+        ></InputArea>
         <div className="Button p-2.5">
           <button
             type="button"
             className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             onClick={(e) => {
               sendMessage();
+              console.log(phone, text);
             }}
           >
             Submit
           </button>
+          <ToastContainer></ToastContainer>
         </div>
       </div>
     </div>

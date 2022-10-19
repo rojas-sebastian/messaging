@@ -10,11 +10,11 @@ function App() {
       <BrowserRouter>
         <NavBar></NavBar>
         <Routes>
-          <Route path="/create" element={<Form></Form>} />
+          <Route path="/" element={<Form></Form>} />
           <Route
             path="/history"
             element={
-              <div className="ChatContainer overflow-y-scroll">
+              <div className="ChatContainer overflow-y-scroll border-gray-500">
                 <ChatHistory></ChatHistory>
               </div>
             }

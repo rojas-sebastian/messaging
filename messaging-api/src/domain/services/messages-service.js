@@ -9,19 +9,22 @@ const getAll = async (req, res) => {
     let respOrm = await ormPostgres.getAll();
     res.send(respOrm);
   } catch (error) {
-    res.status(400).send("hola no se");
+    Logger.debug(
+      `se presento el siguiente error al conectar con la base de datos: ${error}`
+    );
+    res.status(500).send(`error al obtener los mensaje`);
   }
 };
 
 const create = async (req, res) => {
-  const { to, body } = req.body;
+  const { receiver, body } = req.body;
 
   try {
-    const twilioResponse = await twilioClient.sendSMS(to, body);
+    const twilioResponse = await twilioClient.sendSMS(receiver, body);
     const message = new Message(
       body,
       twilioResponse.dateCreated.toISOString(),
-      to
+      receiver
     );
 
     Logger.debug(`Persisting into DB ${JSON.stringify(message)}`);

@@ -22,9 +22,17 @@ function ChatHistory() {
 
   return (
     <div className="h-auto flex flex-col justify-center items-center">
-      {messages.map((message) => (
-        <Message className="p-5" text={message.body} phone={message.reciver} />
-      ))}
+      {messages.map((message) => {
+        return (
+          <Message
+            className="p-5"
+            key={message.id}
+            text={message.body}
+            phone={message.receiver}
+            date={message.datesent}
+          />
+        );
+      })}
     </div>
   );
 }

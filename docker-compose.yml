@@ -1,0 +1,26 @@
+version: "3"
+services:
+  db:
+    image: postgres:14.5-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./messaging-api/src/config/migrations/:/docker-entrypoint-initdb.d/
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+
+  api:
+    image: messaging-api
+    build: ./messaging-api
+    depends_on:
+      - db
+    volumes:
+      - "./messaging-api:/usr/src/app"
+    ports:
+      - "3001:3001"
+
+  #web:
+  #  image: web-app
+  #  build: ./webapp
+  #  ports:
+  #    - "3000:3000"

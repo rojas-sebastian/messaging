@@ -8,12 +8,12 @@ const {
 
 const twilioClient = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
-twilioClient.sendSMS = async (to, body) => {
+twilioClient.sendSMS = async (receiver, body) => {
   try {
-    Logger.debug(`Sending sms message to ${to}, ${body}`);
+    Logger.debug(`Sending sms message to ${receiver}, ${body}`);
     return await twilioClient.messages.create({
       from: SENDER_PHONE_NUMBER,
-      to,
+      to: receiver,
       body,
     });
   } catch (err) {
