@@ -1,7 +1,7 @@
 import "./App.css";
 import Form from "./components/form/form";
 import ChatHistory from "./components/chatHistory/chatHistory";
-import NavBar from "./components/barraNavegacion/navBar";
+import NavBar from "./components/navBar/navBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {

@@ -14,6 +14,4 @@ const environmentVariables = {
   POSTGRES_PORT: env.POSTGRES_PORT,
 };
 
-console.log(JSON.stringify(environmentVariables, null, 2));
-
 module.exports = environmentVariables;

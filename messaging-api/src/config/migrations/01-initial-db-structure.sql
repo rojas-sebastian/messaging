@@ -9,5 +9,5 @@ CREATE TABLE messages (
    receiver varchar(20) not null
 );
 
-INSERT INTO messages (body,dateSent,receiver) values ('hola este es un mensaje', '14/10/2022 14:21:50', '+1222222222');
-INSERT INTO messages (body,dateSent,receiver) values ('Haga la tarea', '14/10/2022 14:22:30', '+1222222222');
+INSERT INTO messages (body,dateSent,receiver) values ('Bienvenido a la API', NOW(), '+1222222222');
+INSERT INTO messages (body,dateSent,receiver) values ('este mensaje fue enviado gracias a la API de Twilio', NOW(), '+1222222222');

@@ -7,7 +7,7 @@ This is a project for LaHaus technical test, this project uses the [Twilio API](
 - [Installation](#installation)
 - [Usage](#usage)
   - [Consider](#consider)
-- [Built](#built)
+- [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -35,26 +35,35 @@ For the use of this application we have some restrictions for the correct operat
 
 - Only numbers from Colombia and previously registered in the [Twilio API](https://support.twilio.com/hc/en-us/articles/223180048-Adding-a-Verified-Phone-Number-or-Caller-ID-with-Twilio) are available.
 
-## Built
+## Technologies Used
 
 The API was developed using the following technologies:
 
+- NodeJS v16
 - npm
-- docker
+- Docker
 
-- Frontend:
+- For the frontend webapp I used:
 
   - ReactJS
-  - TailwindCss
+  - TailwindCSS
 
-- Backend:
+- For the backed api I used:
   - Node JS (Express)
   - PostgreSQL
   - OpenApi 3
+  - Winston for centralized logger
+  - Morgan to allow access logs for express
 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Next steps for a future version
+
+- Configure production environment, adding continous integration
+- Increase unit test coverage
+- Configure winston transport, to send logs into a centralized logs server (logdna, datadog)
 
 ## License
 

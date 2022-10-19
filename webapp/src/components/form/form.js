@@ -21,9 +21,10 @@ function Form() {
         {
           receiver: phone,
           body: text,
-        }
+        },
+        { timeout: 1000 }
       );
-      console.log(res);
+
       toast.success("SMS enviado exitosamente");
     } catch (error) {
       toast.error(
@@ -37,12 +38,12 @@ function Form() {
 
   return (
     <div className="h-[35rem] justify-center items-center flex ">
-      <div className="w-2/3  flex flex-col justify-center items-center">
+      <div className="container w-9/12 h-auto flex flex-col sm:w-8/12 md:w-1/2 lg:w-1/3">
         <label
           htmlFor="phone"
-          className="block mb-2 text-sm font-medium text-gray-90"
+          className="p-3 text-lg font-medium text-gray-90 text-start "
         >
-          Receiver
+          Receiver:
         </label>
         <PhoneInput
           className="PhoneInput p-2 rounded"
@@ -51,10 +52,15 @@ function Form() {
           value={phone}
           onChange={setPhone}
         />
+        <label
+          htmlFor="phone"
+          className="p-3 text-lg font-medium text-gray-90 text-start "
+        >
+          Message:
+        </label>
         <InputArea
           placeholder="Escribe un maximo de 160 caracteres"
           errorMessage="maximo 160 caracteres"
-          label="message"
           pattern=".{0,160}$"
           required
           value={text}

@@ -19,6 +19,15 @@ const getAll = async (req, res) => {
 const create = async (req, res) => {
   const { receiver, body } = req.body;
 
+  if (!isValidRequestBody(res, receiver, body)) {
+    Logger.debug(
+      `El payload enviado, no cumple con los criterios minimos esperados ${JSON.stringify(
+        req.body
+      )}`
+    );
+    return;
+  }
+
   try {
     const twilioResponse = await twilioClient.sendSMS(receiver, body);
     const message = new Message(
@@ -39,6 +48,29 @@ const create = async (req, res) => {
       message: err.message,
     });
   }
+};
+
+const isValidRequestBody = (res, receiver, body) => {
+  if (receiver.trim().length != 13) {
+    res.status(400);
+    res.send({
+      messageStatus: "ERROR",
+      error:
+        "El numero de telefono debe ser colombiano, y debe tener diez digitos",
+    });
+    return false;
+  }
+
+  if (body.length > 160) {
+    res.status(400);
+    res.send({
+      messageStatus: "ERROR",
+      error: "No se puede enviar un mensaje de texto de mas de 160 caracteres",
+    });
+    return false;
+  }
+
+  return true;
 };
 
 module.exports = {
