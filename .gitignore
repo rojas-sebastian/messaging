@@ -8,7 +8,7 @@ webapp/.pnp
 webapp/.pnp.js
 
 #envarioment variables
-webapp/.env
+#webapp/.env
 
 # testing
 webapp/coverage
