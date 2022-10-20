@@ -63,9 +63,10 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Next steps for a future version
 
-- Configure production environment, adding continous integration
-- Increase unit test coverage
-- Configure winston transport, to send logs into a centralized logs server (logdna, datadog)
+- Configure production environment into a Cloud
+- Adding continous integration
+- Adding initial structure for unit testing; I'm trying to follow [this tutorial](https://www.youtube.com/watch?v=lZJ1mar_znk), but currently I'm struggling mocking the external dependencies like Twilio and Postgres. Once I'll have an stable version, I need to increase unit test coverage
+- For logging I've configured winston transport, in a next version we can send logs into a centralized logs server (logdna, elasticsearch, datadog, newrelic)
 
 ## License
 
