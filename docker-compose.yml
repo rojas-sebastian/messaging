@@ -14,9 +14,9 @@ services:
   api:
     image: messaging-api
     build: ./messaging-api
-    volumes:
-      - "./messaging-api:/usr/src/app"
-      - "./messaging-api/node_modules:/usr/src/app/node_modules"
+    # volumes:
+    #   - "./messaging-api:/usr/src/app"
+    #   - "./messaging-api/node_modules:/usr/src/app/node_modules"
     ports:
       - "3001:3001"
     depends_on:
@@ -27,8 +27,8 @@ services:
   web:
     image: webapp
     build: ./webapp
-    volumes:
-      - "./webapp/node_modules:/usr/src/app/node_modules"
+    # volumes:
+    #   - "./webapp/node_modules:/usr/src/app/node_modules"
     ports:
       - "3000:3000"
     depends_on:
